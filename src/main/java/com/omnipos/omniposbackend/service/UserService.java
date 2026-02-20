@@ -13,7 +13,8 @@ import java.util.List;
  */
 
 public interface UserService {
-    UserDTO registerUser(RegisterDTO registerDTO); // Register
+    UserDTO registerShopAdmin(RegisterDTO registerDTO);
+//    UserDTO registerManagerOrCashier(RegisterDTO registerDTO);
     AuthResponseDTO loginUser(AuthDTO authDTO);    // Login
     List<UserDTO> getAllUsers();
 }

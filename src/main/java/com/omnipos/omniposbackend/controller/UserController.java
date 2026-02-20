@@ -25,14 +25,25 @@ public class UserController {
 
     @PostMapping("/register-shop-admin")
     @PreAuthorize("hasRole('SUPER_ADMIN')")
-    public ResponseEntity<APIResponse<UserDTO>> registerUser(@RequestBody RegisterDTO registerDTO) {
+    public ResponseEntity<APIResponse<UserDTO>> register_shop_admin(@RequestBody RegisterDTO registerDTO) {
         try {
-            UserDTO savedUser = userService.registerUser(registerDTO);
+            UserDTO savedUser = userService.registerShopAdmin(registerDTO);
             return ResponseEntity.ok(new APIResponse<>(200, "Shop Admin Registered Successfully", savedUser));
         } catch (Exception e) {
             return ResponseEntity.status(400).body(new APIResponse<>(400, e.getMessage(), null));
         }
     }
+
+//    @PostMapping("/register-shop-admin")
+//    @PreAuthorize("hasRole('SHOP_ADMIN')")
+//    public ResponseEntity<APIResponse<UserDTO>> register_manager_or_cashier(@RequestBody RegisterDTO registerDTO) {
+//        try {
+//            UserDTO savedUser = userService.registerManagerOrCashier(registerDTO);
+//            return ResponseEntity.ok(new APIResponse<>(200, "Shop Admin Registered Successfully", savedUser));
+//        } catch (Exception e) {
+//            return ResponseEntity.status(400).body(new APIResponse<>(400, e.getMessage(), null));
+//        }
+//    }
 
     @PostMapping("/login")
     public ResponseEntity<APIResponse<AuthResponseDTO>> login(@RequestBody AuthDTO authDTO) {
