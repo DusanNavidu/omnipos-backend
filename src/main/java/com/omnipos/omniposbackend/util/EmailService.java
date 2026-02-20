@@ -48,7 +48,7 @@ public class EmailService {
             helper.setFrom("omnipos.system@gmail.com");
 
             mailSender.send(message);
-            System.out.println("Lassana HTML Email sent to: " + toEmail);
+            System.out.println("HTML Email sent to: " + toEmail);
         } catch (Exception e) {
             System.out.println("HTML Email failed: " + e.getMessage());
         }
